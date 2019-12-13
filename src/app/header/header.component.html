@@ -1,0 +1,31 @@
+<nz-header style="position:fixed; width:100%">
+  <div class="logo"></div>
+  <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+    <li nz-menu-item routerLink="/">Home</li>
+    <li nz-menu-item routerLink="/login">Login</li>
+    <li nz-menu-item routerLink="/register">Register</li>
+    <li nz-menu-item>
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input type="text" nz-input placeholder="search"/>
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+    </li>
+    <li nz-menu-item nz-popover [nzPopoverTitle]="titleTemplate" [nzPopoverContent]="contentTemplate">Cart<i nz-icon
+                                                                                                             type="shopping-cart"></i>
+    </li>
+    <ng-template #titleTemplate> Cart
+      <button nz-button
+              (click)="confirm()"
+      >Confirm
+      </button>
+    </ng-template>
+    <ng-template #contentTemplate>
+      <ng-container *ngFor="let elt of cartItems">
+        {{elt.title}} | <h3>{{elt.price}} Dt</h3>
+        <hr>
+      </ng-container>
+    </ng-template>
+  </ul>
+</nz-header>

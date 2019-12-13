@@ -1,0 +1,21 @@
+
+nz-radio-group {
+  margin-bottom: 8px;
+}
+
+[nz-carousel-content] {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #ffffff;
+  color: #fff;
+  overflow: hidden;
+}
+nz-carousel{
+  min-width: 1200px;
+  min-height: 400px;
+}
+
+h3 {
+  color: #fff;
+}

@@ -1,0 +1,32 @@
+<nz-list [nzDataSource]="products" [nzRenderItem]="item" [nzGrid]="{ gutter: 16, span: 6 }" style="margin-top: 20px">
+  <ng-template #item let-item>
+    <nz-list-item [nzContent]="nzContent">
+      <ng-template #nzContent>
+        <nz-card style="width:300px;" [nzCover]="coverTemplate"
+                 [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
+          <nz-card-meta
+            nzTitle="{{item.title}}"
+            nzDescription="{{item.description}}"
+            [nzAvatar]="priceTemplate"
+          ></nz-card-meta>
+        </nz-card>
+        <ng-template #priceTemplate>
+          <h1>{{item.price}} Dt</h1>
+        </ng-template>
+        <ng-template #coverTemplate>
+          <img alt="example" [src]="item.url"/>
+        </ng-template>
+        <ng-template #actionSetting>
+          <i nz-icon nzType="setting"></i>
+        </ng-template>
+        <ng-template #actionEdit>
+          <button class="ant-btn" (click)="addToCart(item)">Add to cart</button>
+
+        </ng-template>
+        <ng-template #actionEllipsis>
+          Qte : {{item.quantity}}
+        </ng-template>
+      </ng-template>
+    </nz-list-item>
+  </ng-template>
+</nz-list>
